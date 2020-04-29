@@ -1,8 +1,9 @@
 $('#guess-form').on('submit', (e) => checkWord(e))
 
-CURRENT_SCORE = 0
-TIMER = 60
-GUESSES = []
+const CURRENT_SCORE = 0
+let TIME = 5
+let GUESSES = []
+let timer
 
 async function checkWord(e) {
 	e.preventDefault()
@@ -32,28 +33,37 @@ function renderResult(response, word) {
 	$('#guess').val('')
 }
 
-const timer = setInterval(() => {
-	$('#timer').text(`${TIMER}`)
-	TIMER -= 1
-	if (TIMER === 0) {
-		$('#timer').text("TIME'S UP!")
-		clearInterval(timer)
-		endGame()
-		$('#restart-btn').show()
+async function counter() {
+	TIME--
+	if (TIME === 0) {
+		$('#submit-btn').prop('disabled', true)
+		$('#restart-btn').text('Restart Game')
+		clearTimeout(timer)
+		await axios.post('/gameover', { score: CURRENT_SCORE })
 	}
-}, 1000)
+	$('#timer').text(TIME)
+	timer = setTimeout(() => {
+		counter()
+	}, 1000)
+
+}
 
 async function endGame() {
 	// Disable submit button
-	$('#submit-button').prop('disabled', true)
+	$('#submit-btn').prop('disabled', true)
 
 	// Send current score to back-end
-	await axios.post('/gameover', { score: CURRENT_SCORE })
+	
 }
 
 function restartGame() {
 	console.log('clicked!')
-	$('#submit-button').prop('disabled', false)
-	TIMER = 60
-	setInterval(timer, 1000)
+	$('#submit-btn').prop('disabled', false)
+	clearInterval(timer, 1000)
 }
+
+$('#restart-btn').on('click', function() {
+	$('#submit-btn').prop('disabled', false)
+	counter()
+	
+})

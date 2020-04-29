@@ -145,10 +145,6 @@ p {
 	font-size: 1em;
 }
 
-.hidden {
-	display: none;
-}
-
 /* Set teh containers height and width */
 .timer {
 	grid-column: 4;

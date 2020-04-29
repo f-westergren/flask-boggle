@@ -26,14 +26,14 @@
     </div>
     
     <div class="timer">
-      <p id="timer"></p>
-      <button class='btn hidden' id="restart-btn" onclick="restartGame()">Restart</button>
+      <p id="timer">60</p>
+      <button class='btn' id="restart-btn">Start Game</button>
     </div>
     
     <div class='forms'>
       <form action="" id="guess-form" method="POST">
         <input id="guess" required type="text" placeholder="" />
-        <button class='btn' id="submit-btn" action="submit">Submit</button>
+        <button class='btn' id="submit-btn" action="submit" disabled="true">Submit</button>
       </form> 
       <p id="current-guess"></p>
       <p id="guess-result"></p>
