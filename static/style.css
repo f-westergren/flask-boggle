@@ -1,0 +1,46 @@
+h1 {
+  text-align: center;
+  color: darkgray;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.boggle-board {
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 5px;
+  margin-bottom: 30px;
+}
+
+td {
+  height: 35px;
+  width: 35px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  text-align: center;
+}
+
+td:hover {
+  background-color: lightgray;
+  transition: all .1s;
+}
+
+.boggle-input {
+}
+
+.misc {
+  position: relative;
+  margin-top: 30px;
+}
