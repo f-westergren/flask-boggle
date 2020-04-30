@@ -6,7 +6,23 @@
   <link href="static/style.css" rel="stylesheet">
   <title>Boggle Game</title>
   <h1>Boggle Game</h1>
+  <div class="top-container">
+    <div class='misc'></div>
+    <div class='misc'></div>
+    <div class='misc'></div>
+    <div class='misc'>    
+      <span id="timer">Timer: 0</span>
+    </div>
+    <div class='misc'>
+
+      <span id="score">Score: 0<span id="best"> (Best: 0)</span></span>
+    </div>
+    <div class='misc'></div>
+    <div class='misc'></div>
+    <div class='misc'></div>
+  </div>
   <div class="container">
+
     <div class='boggle-board'>
       <table class="board">
         {% for row in board %}
@@ -24,10 +40,6 @@
           <input type="text" name="word" id="word"/>
           <button id="submit-button">Submit</button>
       </form>
-    </div>
-    <div class='misc'>
-      <span id="timer">Timer: </span>
-      <span id="score">Score: </span>
     </div>
     <div class="result">
     </div>

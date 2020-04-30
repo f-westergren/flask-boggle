@@ -3,6 +3,17 @@ h1 {
   color: darkgray;
 }
 
+.top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.misc {
+ width: 300px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -12,24 +23,29 @@ h1 {
 }
 
 .boggle-board {
-
+  border: 2px solid blue;
+  border-radius: 5px;
+  background-color: lightblue;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 table {
   border-collapse: separate;
   border-spacing: 5px;
-  margin-bottom: 30px;
+  margin: 30px;
 }
 
 td {
+  color: transparent;
   height: 35px;
   width: 35px;
   border: 2px solid blue;
   border-radius: 5px;
   text-align: center;
+  background-color: white;
 }
 
 td:hover {
@@ -42,5 +58,4 @@ td:hover {
 
 .misc {
   position: relative;
-  margin-top: 30px;
 }

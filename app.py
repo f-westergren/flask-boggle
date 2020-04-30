@@ -20,3 +20,16 @@ def check_word():
     check_word = boggle_game.check_valid_word(session['board'], word)
     return ({'result': check_word})
     
+@app.route('/game-over')
+def game_over():
+
+    score = request.args.get('score', 0)
+    highscore = int(session.get('highscore', 0))
+    
+    # if score>highscore:
+    #     session['highscore'] = score
+    
+    print(session.get('highscore', 0))
+    print(score)
+
+    return ({'highscore': highscore})
