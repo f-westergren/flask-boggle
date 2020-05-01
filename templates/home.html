@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Boggle Game{% endblock %}
+{% block content %}
+<div class='boggle-board'>
+  <table class="board">
+    {% for row in board %}
+    <tr>
+      {% for letter in row %}
+        <td></td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

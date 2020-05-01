@@ -1,6 +1,12 @@
+body {
+  background-color: #E8FCCF;
+  color: #134611;
+  font-family: 'Manrope', sans-serif;
+}
+
 h1 {
   text-align: center;
-  color: darkgray;
+  color: #134611;
 }
 
 .top-container {
@@ -14,6 +20,16 @@ h1 {
  width: 300px;
 }
 
+.score {
+  width: 300px;
+  text-align: end;
+}
+
+.timer {
+  width: 300px;
+  text-align: start;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -23,9 +39,9 @@ h1 {
 }
 
 .boggle-board {
-  border: 2px solid blue;
+  border: 2px solid #134611;
   border-radius: 5px;
-  background-color: lightblue;
+  background-color: #96E072;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -39,13 +55,12 @@ table {
 }
 
 td {
-  color: transparent;
   height: 35px;
   width: 35px;
   border: 2px solid blue;
   border-radius: 5px;
   text-align: center;
-  background-color: white;
+  background-color: #E8FCCF;
 }
 
 td:hover {
@@ -58,4 +73,8 @@ td:hover {
 
 .misc {
   position: relative;
+}
+
+#restart-button {
+  margin-top: 30px;
 }

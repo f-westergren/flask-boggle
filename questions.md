@@ -1,0 +1,2 @@
+- If user submits an empty guess, where is it best to intercept that guess? In the HTML, in flask, or in the css? or all?
+- Where is it better to place the jQuery? In the class or outside the class? Should you avoid putting jQuery in the class as much as possible?

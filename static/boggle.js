@@ -4,7 +4,7 @@ class Boggle{
     this.seconds = seconds
     this.timer
     this.words = []
-    // this.highscore = this.getHighscore()
+    this.highscore
   }
 
   async checkWord(word) {
@@ -18,7 +18,6 @@ class Boggle{
     } else if (res === 'not-on-board') {
       return "That word is not on the board!"
     } else if (res === 'ok') {
-      this.addScore(word)
       return "That's a word!"
     } 
   }
@@ -26,15 +25,14 @@ class Boggle{
   addScore(word) {
       this.score += word.length
       this.words.push(word)
-      $('#score').text(`Score: ${this.score} `)
-      console.log(this.score)
+      return this.score
   }
 
   newGame() {
     this.words = []
     this.score=0
+    clearInterval(this.timer)
     this.setTimer()
-    $('td').css('color', '#141414')
   }
 
   setTimer() {
@@ -43,27 +41,20 @@ class Boggle{
       $('#timer').text(`Timer: ${time}`)
       time--
       if (time < 0) {
-        clearInterval(this.timer)
+        this.endGame()
       }
     }, 1000)
   }
 
-  async getHighscore() {
+  async renderHighscore() {
     const result = await axios.get('/game-over', {params: {score: this.score}})
-    return result.data.highscore
+    const res = result.data.highscore
+    $('#highscore').text(` (Best: ${res})`)
   }
 
+  async endGame() {
+    clearInterval(this.timer)
+    this.renderHighscore()
+    $('#submit-button').prop('disabled', true)
+  }
 }
-
-let game = new Boggle()
-
-$('#submit-button').on('click', async function(e) {
-  e.preventDefault()
-
-  let word = $('#word').val()
-  let result = await game.checkWord(word)
-
-  $('#word').val('')
-
-  $('.result').html(`<p>${result}</p>`)
-}) 
